@@ -4,26 +4,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <!-- Latest compiled and minified CSS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 
   <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+
   <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
   <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="js/script.js"></script>
+
   <title>Cash Flow Synerry</title>
 </head>
 
@@ -75,129 +80,87 @@
   <!-- table รายรับ-รายจ่าย -->
   <div class="table-responsive">
     <table class="table table-striped table-sm">
-      <thead class="text-center">
+      <thead>
         <tr>
-          <th width=25%>รายรับ</th>
-          <th>January</th>
-          <th>February</th>
-          <th>March</th>
-          <th>April</th>
-          <th>May</th>
-          <th>June</th>
-          <th>July</th>
-          <th>August</th>
-          <th>September</th>
-          <th>October</th>
-          <th>November</th>
-          <th>December</th>
+          <th class="text-center">รายการ</th>
+          <?php
+            $month = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dev");
+            for ($i=0;$i<12;$i++) {
+              echo "<th>".$month[$i]."</th>";
+            }
+          ?>
         </tr>
       </thead>
-      <tbody class="text-center">
-        <tr>
-          <td class="text-left">รายการที่ 1</td>
-          <td>10,000</td>
-          <td>10,000</td>
-          <td>10,000</td>
-          <td>10,000</td>
-          <td>10,000</td>
-          <td>10,000</td>
-          <td>10,000</td>
-          <td>10,000</td>
-          <td>10,000</td>
-          <td>10,000</td>
-          <td>10,000</td>
-          <td>10,000</td>
-        </tr>
-        <tr>
-          <td class="text-left">รายการที่ 2</td>
-          <td>20,000</td>
-          <td>20,000</td>
-          <td>20,000</td>
-          <td>20,000</td>
-          <td>20,000</td>
-          <td>20,000</td>
-          <td>20,000</td>
-          <td>20,000</td>
-          <td>20,000</td>
-          <td>20,000</td>
-          <td>20,000</td>
-          <td>20,000</td>
-        </tr>
-        <tr>
-          <td class="text-left">รายการที่ 3</td>
-          <td>30,000</td>
-          <td>30,000</td>
-          <td>30,000</td>
-          <td>30,000</td>
-          <td>30,000</td>
-          <td>30,000</td>
-          <td>30,000</td>
-          <td>30,000</td>
-          <td>30,000</td>
-          <td>30,000</td>
-          <td>30,000</td>
-          <td>30,000</td>
-        </tr>
-        <tr>
-          <td class="text-left">รายการที่ 4</td>
-          <td>40,000</td>
-          <td>40,000</td>
-          <td>40,000</td>
-          <td>40,000</td>
-          <td>40,000</td>
-          <td>40,000</td>
-          <td>40,000</td>
-          <td>40,000</td>
-          <td>40,000</td>
-          <td>40,000</td>
-          <td>40,000</td>
-          <td>40,000</td>
-        </tr>
-        <tr>
-          <td class="text-left">รายการที่ 5</td>
-          <td>50,000</td>
-          <td>50,000</td>
-          <td>50,000</td>
-          <td>50,000</td>
-          <td>50,000</td>
-          <td>50,000</td>
-          <td>50,000</td>
-          <td>50,000</td>
-          <td>50,000</td>
-          <td>50,000</td>
-          <td>50,000</td>
-          <td>50,000</td>
-        </tr>
-        <tr>
-          <td class="text-left">รายการที่ 6</td>
-          <td>60,000</td>
-          <td>60,000</td>
-          <td>60,000</td>
-          <td>60,000</td>
-          <td>60,000</td>
-          <td>60,000</td>
-          <td>60,000</td>
-          <td>60,000</td>
-          <td>60,000</td>
-          <td>60,000</td>
-          <td>60,000</td>
-          <td>60,000</td>
-        </tr>
-        <tr class="table-active">
-          <th>รวมรายรับ</th>
-          <td>210,000</td>
-          <td>210,000</td>
-          <td>210,000</td>
-          <td>210,000</td>
-          <td>210,000</td>
-          <td>210,000</td>
-          <td>210,000</td>
-          <td>210,000</td>
-          <td>210,000</td>
-          <td>210,000</td>
-          <td>210,000</td>
-          <td>210,000</td>
-        </tr>
+      <tbody>
+      <?php
+        $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
+        if ($conn-> connect_error) {
+          die("Connection failed:".$conn-> connect_error);
+        }
+
+        $sql = "SELECT * FROM income";
+        $result = $conn-> query($sql);
+
+        if($result-> num_rows > 0) {
+          while($row = $result-> fetch_array()) {
+            // if ($row["list"] == 'โบนัส')
+            $list = $row["list"];
+            //Jan
+            if ($row["inputDate"] >= 1514739600 && $row["inputDate"] <= 1517417999)
+              echo "<tr><td>".$list."</td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+            //Feb
+            else if($row["inputDate"] >= 1517418000 && $row["inputDate"] <= 1519837199){
+              echo "<tr><td>".$list."</td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+            }
+            //Mar
+            else if($row["inputDate"] >= 1519837200 && $row["inputDate"] <= 1522515599){
+              echo "<tr><td>".$list."</td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+            }
+            //Apr
+            else if($row["inputDate"] >= 1522515600 && $row["inputDate"] <= 1525107599){
+              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+            }
+            //May
+            else if($row["inputDate"] >= 1525107600 && $row["inputDate"] <= 1527785999){
+              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+            }
+            //Jun
+            else if($row["inputDate"] >= 1527786000 && $row["inputDate"] <= 1530377999){
+              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+            }
+            //Jul
+            else if($row["inputDate"] >= 1530378000 && $row["inputDate"] <= 1533056399){
+              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td></tr>";
+            }
+            //Aug
+            else if($row["inputDate"] >= 1533056400 && $row["inputDate"] <= 1535734799){
+              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td></tr>";
+            }
+            //Sep
+            else if($row["inputDate"] >= 1535734800 && $row["inputDate"] <= 1538326799){
+              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td></tr>";
+            }
+            //Oct
+            else if($row["inputDate"] >= 1538326800 && $row["inputDate"] <= 1541005199){
+              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td></tr>";
+            }
+            //Nov
+            else if($row["inputDate"] >= 1541005200 && $row["inputDate"] <= 1543597199){
+              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td></tr>";
+            }
+            //Dec
+            else if($row["inputDate"] >= 1543597200 && $row["inputDate"] <= 1546275599){
+              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td></tr>";
+            }
+          }
+          echo "</table>";
+        }
+        else {
+          echo "0 result";
+        }
+
+        $conn-> close();
+      ?>
       </tbody>
     </table>
     <table class="table table-striped table-sm">
@@ -336,7 +299,7 @@
     เพิ่มรายการ
   </button>
 
-    <!-- The Modal -->
+     <!-- The Modal -->
     <div class="modal fade" id="myModal">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -362,7 +325,7 @@
               <input id="datepicker" width="276" />
               <script>
                 $('#datepicker').datepicker({
-                  uiLibrary: 'bootstrap3',
+                  uiLibrary: 'bootstrap4',
                   format: 'dd-mm-yyyy'
                 });
               </script>
@@ -383,7 +346,7 @@
 
           <!-- Modal footer -->
           <div class="modal-footer">
-            <input class="btn btn-primary" id="btnSubmit" type="button" value="Submitxxxx">
+            <input class="btn btn-primary" id="btnSubmit" type="button" value="Save">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
 

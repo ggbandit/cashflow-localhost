@@ -9,6 +9,27 @@ $(document).ready(function() {
       return true;
   }
 
+  getExistingData(0,10);
+
+  function getExistingData(start,limit) {
+      $.ajax({
+          url: 'ajax.php',
+          method: 'POST',
+          dataType: 'text',
+          data: {
+              key: 'getExistingData',
+              start: start,
+              limit: limit
+          } , success: function(response) {
+                if(response == "reachedMax") {
+                  $('tbody').append(response);
+                  start += limit;
+                  getExistingData(start,limit);
+                }
+          }
+      });
+  }
+
   $("#btnSubmit").click(function() {
     var radio1 = $("#inlineRadio1");
     var radio2 = $("#inlineRadio2");

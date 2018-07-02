@@ -31,6 +31,28 @@ html, body {
   padding-left: 170px;
 }
 
+.inner-addon {
+  position: relative;
+}
+
+.inner-addon .glyphicon {
+  position: absolute;
+  padding-top: 33px;
+  padding-right: 10px;
+}
+
+.c {
+  font-size: 30px;
+}
+
+.right-addon .glyphicon {
+  right: 0px;
+}
+
+.right-addon input {
+  padding-right: 20px;
+}
+
 .table-bg {
   background-color: #3964a3;
   color: white;
@@ -40,7 +62,7 @@ a {
     color: white;
 }
 #Graph {
-  background: url('background-graph.jpg') no-repeat center center fixed;
+  background: url('../background-graph.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   width: 100%;
