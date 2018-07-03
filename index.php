@@ -131,7 +131,6 @@
                     <button type="button" class="btn btn-outline-white btn-rounded btn-sm waves-effect waves-light float-right mr-4" data-toggle="modal" data-target="#modalConfirmDelete">
                       <i class="fa fa-plus"></i>
                     </button>
-
                   </div>
 
                   <!-- Modal footer -->
@@ -139,18 +138,17 @@
                     <input class="btn btn-primary" id="btnSubmit" type="button" value="Save">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                   </div>
-
                 </div>
               </div>
             </div>
-
           </div>
           <!-- button -->
+
           <!-- table รายรับ-รายจ่าย -->
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
-                <tr class="table-primary">
+                <tr class="bg-info">
                   <th class="text-center">รายรับ</th>
                   <?php
                   $month = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dev");
@@ -324,9 +322,8 @@
                   ?>
                 </tr>
               </tbody>
-              <td></td>
               <thead class="mt-3">
-                <tr class="text-center table-primary">
+                <tr class="text-center bg-info">
                   <th>รายจ่าย</th>
                   <?php
                   $month = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dev");
@@ -499,8 +496,161 @@
                   $conn-> close();
                   ?>
                 </tr>
-                <tr>
-                  <th class="table-dark text-center">เงินคงเหลือ</th>
+                <tr class="bg-dark" style="color:white;">
+                  <th class="text-center">เงินคงเหลือ</th>
+                  <?php 
+                  $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
+                  if ($conn-> connect_error) {
+                    die("Connection failed:".$conn-> connect_error);
+                  }
+
+                  $sqlJan = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1514739600 AND 1517417999";
+                  $result = $conn-> query($sqlJan);
+                  $val = $result -> fetch_array();
+                  $IncomeJan_total = $val['sum'];
+
+                  $sqlFeb = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1517418000 AND 1519837199";
+                  $result = $conn-> query($sqlFeb);
+                  $val = $result -> fetch_array();
+                  $IncomeFeb_total = $val['sum'];
+
+                  $sqlMar = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1519837200 AND 1522515599";
+                  $result = $conn-> query($sqlMar);
+                  $val = $result -> fetch_array();
+                  $IncomeMar_total = $val['sum'];
+
+                  $sqlApr = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1522515600 AND 1525107599";
+                  $result = $conn-> query($sqlApr);
+                  $val = $result -> fetch_array();
+                  $IncomeApr_total = $val['sum'];
+
+                  $sqlMay = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1525107600 AND 1527785999";
+                  $result = $conn-> query($sqlMay);
+                  $val = $result -> fetch_array();
+                  $IncomeMay_total = $val['sum'];
+
+                  $sqlJun = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1527786000 AND 1530377999";
+                  $result = $conn-> query($sqlJun);
+                  $val = $result -> fetch_array();
+                  $IncomeJun_total = $val['sum'];
+
+                  $sqlJul = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1530378000 AND 1533056399";
+                  $result = $conn-> query($sqlJul);
+                  $val = $result -> fetch_array();
+                  $IncomeJul_total = $val['sum'];
+
+                  $sqlAug = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1533056400 AND 1535734799";
+                  $result = $conn-> query($sqlAug);
+                  $val = $result -> fetch_array();
+                  $IncomeAug_total = $val['sum'];
+
+                  $sqlSeb = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1535734800 AND 1538326799";
+                  $result = $conn-> query($sqlSeb);
+                  $val = $result -> fetch_array();
+                  $IncomeSeb_total = $val['sum'];
+
+                  $sqlOct = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1538326800 AND 1541005199";
+                  $result = $conn-> query($sqlOct);
+                  $val = $result -> fetch_array();
+                  $IncomeOct_total = $val['sum'];
+
+                  $sqlNov = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1541005200 AND 1543597199";
+                  $result = $conn-> query($sqlNov);
+                  $val = $result -> fetch_array();
+                  $IncomeNov_total = $val['sum'];
+
+                  $sqlDec = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1543597200 AND 1546275599";
+                  $result = $conn-> query($sqlDec);
+                  $val = $result -> fetch_array();
+                  $IncomeDec_total = $val['sum'];
+
+                  $sqlJan = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1514739600 AND 1517417999";
+                  $result = $conn-> query($sqlJan);
+                  $val = $result -> fetch_array();
+                  $MoneyOutJan_total = $val['sum'];
+
+                  $sqlFeb = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1517418000 AND 1519837199";
+                  $result = $conn-> query($sqlFeb);
+                  $val = $result -> fetch_array();
+                  $MoneyOutFeb_total = $val['sum'];
+
+                  $sqlMar = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1519837200 AND 1522515599";
+                  $result = $conn-> query($sqlMar);
+                  $val = $result -> fetch_array();
+                  $MoneyOutMar_total = $val['sum'];
+
+                  $sqlApr = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1522515600 AND 1525107599";
+                  $result = $conn-> query($sqlApr);
+                  $val = $result -> fetch_array();
+                  $MoneyOutApr_total = $val['sum'];
+
+                  $sqlMay = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1525107600 AND 1527785999";
+                  $result = $conn-> query($sqlMay);
+                  $val = $result -> fetch_array();
+                  $MoneyOutMay_total = $val['sum'];
+
+                  $sqlJun = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1527786000 AND 1530377999";
+                  $result = $conn-> query($sqlJun);
+                  $val = $result -> fetch_array();
+                  $MoneyOutJun_total = $val['sum'];
+
+                  $sqlJul = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1530378000 AND 1533056399";
+                  $result = $conn-> query($sqlJul);
+                  $val = $result -> fetch_array();
+                  $MoneyOutJul_total = $val['sum'];
+
+                  $sqlAug = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1533056400 AND 1535734799";
+                  $result = $conn-> query($sqlAug);
+                  $val = $result -> fetch_array();
+                  $MoneyOutAug_total = $val['sum'];
+
+                  $sqlSeb = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1535734800 AND 1538326799";
+                  $result = $conn-> query($sqlSeb);
+                  $val = $result -> fetch_array();
+                  $MoneyOutSeb_total = $val['sum'];
+
+                  $sqlOct = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1538326800 AND 1541005199";
+                  $result = $conn-> query($sqlOct);
+                  $val = $result -> fetch_array();
+                  $MoneyOutOct_total = $val['sum'];
+
+                  $sqlNov = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1541005200 AND 1543597199";
+                  $result = $conn-> query($sqlNov);
+                  $val = $result -> fetch_array();
+                  $MoneyOutNov_total = $val['sum'];
+
+                  $sqlDec = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1543597200 AND 1546275599";
+                  $result = $conn-> query($sqlDec);
+                  $val = $result -> fetch_array();
+                  $MoneyOutDec_total = $val['sum'];
+
+                  $sumJan = $IncomeJan_total-$MoneyOutJan_total;
+                  $sumFeb = $IncomeFeb_total-$MoneyOutFeb_total;
+                  $sumMar = $IncomeMar_total-$MoneyOutMar_total;
+                  $sumApr = $IncomeApr_total-$MoneyOutApr_total;
+                  $sumMay = $IncomeMay_total-$MoneyOutMay_total;
+                  $sumJun = $IncomeJun_total-$MoneyOutJun_total;
+                  $sumJul = $IncomeJul_total-$MoneyOutJul_total;
+                  $sumAug = $IncomeAug_total-$MoneyOutAug_total;
+                  $sumSeb = $IncomeSeb_total-$MoneyOutSeb_total;
+                  $sumOct = $IncomeOct_total-$MoneyOutOct_total;
+                  $sumNov = $IncomeNov_total-$MoneyOutNov_total;
+                  $sumDec = $IncomeDec_total-$MoneyOutDec_total;
+                  echo "<th>".$sumJan."</th>";
+                  echo "<th>".$sumFeb."</th>";
+                  echo "<th>".$sumMar."</th>";
+                  echo "<th>".$sumApr."</th>";
+                  echo "<th>".$sumMay."</th>";
+                  echo "<th>".$sumJun."</th>";
+                  echo "<th>".$sumJul."</th>";
+                  echo "<th>".$sumAug."</th>";
+                  echo "<th>".$sumSeb."</th>";
+                  echo "<th>".$sumOct."</th>";
+                  echo "<th>".$sumNov."</th>";
+                  echo "<th>".$sumDec."</th>";
+
+                  $conn-> close();
+                  ?>
                 </tr>
               </tbody>
             </table>
