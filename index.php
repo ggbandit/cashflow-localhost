@@ -16,10 +16,10 @@
 
   <!-- Latest compiled and minified JavaScript -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
@@ -65,7 +65,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Week</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"> 
           <a class="nav-link" href="#">Month</a>
         </li>
         <li class="nav-item">
@@ -77,229 +77,14 @@
 
   </div>
   <!-- Graph -->
-  <!-- table รายรับ-รายจ่าย -->
-  <div class="table-responsive">
-    <table class="table table-striped table-sm">
-      <thead>
-        <tr>
-          <th class="text-center">รายการ</th>
-          <?php
-            $month = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dev");
-            for ($i=0;$i<12;$i++) {
-              echo "<th>".$month[$i]."</th>";
-            }
-          ?>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
-        $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
-        if ($conn-> connect_error) {
-          die("Connection failed:".$conn-> connect_error);
-        }
-
-        $sql = "SELECT * FROM income";
-        $result = $conn-> query($sql);
-
-        if($result-> num_rows > 0) {
-          while($row = $result-> fetch_array()) {
-            // if ($row["list"] == 'โบนัส')
-            $list = $row["list"];
-            //Jan
-            if ($row["inputDate"] >= 1514739600 && $row["inputDate"] <= 1517417999)
-              echo "<tr><td>".$list."</td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-            //Feb
-            else if($row["inputDate"] >= 1517418000 && $row["inputDate"] <= 1519837199){
-              echo "<tr><td>".$list."</td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-            }
-            //Mar
-            else if($row["inputDate"] >= 1519837200 && $row["inputDate"] <= 1522515599){
-              echo "<tr><td>".$list."</td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-            }
-            //Apr
-            else if($row["inputDate"] >= 1522515600 && $row["inputDate"] <= 1525107599){
-              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-            }
-            //May
-            else if($row["inputDate"] >= 1525107600 && $row["inputDate"] <= 1527785999){
-              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-            }
-            //Jun
-            else if($row["inputDate"] >= 1527786000 && $row["inputDate"] <= 1530377999){
-              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-            }
-            //Jul
-            else if($row["inputDate"] >= 1530378000 && $row["inputDate"] <= 1533056399){
-              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td></tr>";
-            }
-            //Aug
-            else if($row["inputDate"] >= 1533056400 && $row["inputDate"] <= 1535734799){
-              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td></tr>";
-            }
-            //Sep
-            else if($row["inputDate"] >= 1535734800 && $row["inputDate"] <= 1538326799){
-              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td></tr>";
-            }
-            //Oct
-            else if($row["inputDate"] >= 1538326800 && $row["inputDate"] <= 1541005199){
-              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td></tr>";
-            }
-            //Nov
-            else if($row["inputDate"] >= 1541005200 && $row["inputDate"] <= 1543597199){
-              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td></tr>";
-            }
-            //Dec
-            else if($row["inputDate"] >= 1543597200 && $row["inputDate"] <= 1546275599){
-              echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td></tr>";
-            }
-          }
-          echo "</table>";
-        }
-        else {
-          echo "0 result";
-        }
-
-        $conn-> close();
-      ?>
-      </tbody>
-    </table>
-    <table class="table table-striped table-sm">
-      <thead class="text-center">
-        <tr>
-          <th width=25%>รายจ่าย</th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody class="text-center">
-        <tr>
-          <td class="text-left">รายการที่ 1</td>
-          <td>5,000</td>
-          <td>5,000</td>
-          <td>5,000</td>
-          <td>5,000</td>
-          <td>5,000</td>
-          <td>5,000</td>
-          <td>5,000</td>
-          <td>5,000</td>
-          <td>5,000</td>
-          <td>5,000</td>
-          <td>5,000</td>
-          <td>5,000</td>
-        </tr>
-        <tr>
-          <td class="text-left">รายการที่ 2</td>
-          <td>6,000</td>
-          <td>6,000</td>
-          <td>6,000</td>
-          <td>6,000</td>
-          <td>6,000</td>
-          <td>6,000</td>
-          <td>6,000</td>
-          <td>6,000</td>
-          <td>6,000</td>
-          <td>6,000</td>
-          <td>6,000</td>
-          <td>6,000</td>
-        </tr>
-        <tr>
-          <td class="text-left">รายการที่ 3</td>
-          <td>7,000</td>
-          <td>7,000</td>
-          <td>7,000</td>
-          <td>7,000</td>
-          <td>7,000</td>
-          <td>7,000</td>
-          <td>7,000</td>
-          <td>7,000</td>
-          <td>7,000</td>
-          <td>7,000</td>
-          <td>7,000</td>
-          <td>7,000</td>
-        </tr>
-        <tr>
-          <td class="text-left">รายการที่ 4</td>
-          <td>8,000</td>
-          <td>8,000</td>
-          <td>8,000</td>
-          <td>8,000</td>
-          <td>8,000</td>
-          <td>8,000</td>
-          <td>8,000</td>
-          <td>8,000</td>
-          <td>8,000</td>
-          <td>8,000</td>
-          <td>8,000</td>
-          <td>8,000</td>
-        </tr>
-        <tr>
-          <td class="text-left">รายการที่ 5</td>
-          <td>9,000</td>
-          <td>9,000</td>
-          <td>9,000</td>
-          <td>9,000</td>
-          <td>9,000</td>
-          <td>9,000</td>
-          <td>9,000</td>
-          <td>9,000</td>
-          <td>9,000</td>
-          <td>9,000</td>
-          <td>9,000</td>
-          <td>9,000</td>
-        </tr>
-        <tr>
-          <tr class="table-active">
-            <th>รวมรายจ่าย</th>
-            <td>35,000</td>
-            <td>35,000</td>
-            <td>35,000</td>
-            <td>35,000</td>
-            <td>35,000</td>
-            <td>35,000</td>
-            <td>35,000</td>
-            <td>35,000</td>
-            <td>35,000</td>
-            <td>35,000</td>
-            <td>35,000</td>
-            <td>35,000</td>
-          </tr>
-          <tr class="table-bg">
-            <th>เงินคงเหลือ</th>
-            <th>175,000</th>
-            <th>175,000</th>
-            <th>175,000</th>
-            <th>175,000</th>
-            <th>175,000</th>
-            <th>175,000</th>
-            <th>175,000</th>
-            <th>175,000</th>
-            <th>175,000</th>
-            <th>175,000</th>
-            <th>175,000</th>
-            <th>175,000</th>
-          </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- table รายรับ-รายจ่าย -->
   <!-- button -->
-  <div class="container-fluid">
+  <div class="container-fluid my-4">
     <!-- Button to Open the Modal -->
-    <button type="button" class="btn btn-primary ml-5" id="addNew" data-toggle="modal" data-target="#myModal">
-    เพิ่มรายการ
-  </button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      เพิ่มรายการ
+    </button>
 
-     <!-- The Modal -->
+    <!-- The Modal -->
     <div class="modal fade" id="myModal">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -331,31 +116,395 @@
               </script>
             </div>
             <!-- <label class="padding">รายการ</label>
-            <label class="padding2">ยอดเงิน</label> -->
+              <label class="padding2">ยอดเงิน</label> -->
 
-            <div class="form-inline">
-              <label for="id">1.</label>
-              <input class="form-control margin-lg" type="text" id="list" name="รายการ" placeholder="รายการ">
-              <input class="form-control margin-lg" type="number" id="balance" name="ยอดเงิน" placeholder="ยอดเงิน">
+              <div class="form-inline">
+                <ol class="mt-3">
+                  <li><input class="form-control" type="text" id="list" name="รายการ" placeholder="รายการ">
+                    <input class="form-control ml-3" type="number" id="balance" name="ยอดเงิน" placeholder="ยอดเงิน"></li>
+                    <li class="mt-2"><input class="form-control" type="text" id="list2" name="รายการ" placeholder="รายการ">
+                      <input class="form-control ml-3" type="number" id="balance2" name="ยอดเงิน" placeholder="ยอดเงิน"></li>
+                      <li class="mt-2"><input class="form-control" type="text" id="list3" name="รายการ" placeholder="รายการ">
+                        <input class="form-control ml-3" type="number" id="balance3" name="ยอดเงิน" placeholder="ยอดเงิน"></li>
+                      </ol>
+                    </div>
+                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm waves-effect waves-light float-right mr-4" data-toggle="modal" data-target="#modalConfirmDelete">
+                      <i class="fa fa-plus"></i>
+                    </button>
+
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <input class="btn btn-primary" id="btnSubmit" type="button" value="Save">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+
+                </div>
+              </div>
             </div>
-            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 waves-effect waves-light float-right mr-3" data-toggle="modal" data-target="#modalConfirmDelete">
-              <i class="fa fa-plus"></i>
-            </button>
 
           </div>
+          <!-- button -->
+          <!-- table รายรับ-รายจ่าย -->
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr class="table-primary">
+                  <th class="text-center">รายรับ</th>
+                  <?php
+                  $month = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dev");
+                  for ($i=0;$i<12;$i++) {
+                    echo "<th>".$month[$i]."</th>";
+                  }
+                  ?>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
+                if ($conn-> connect_error) {
+                  die("Connection failed:".$conn-> connect_error);
+                }
 
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <input class="btn btn-primary" id="btnSubmit" type="button" value="Save">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                $sql = "SELECT * FROM income";
+                $result = $conn-> query($sql);
+
+                if($result-> num_rows > 0) {
+                  while($row = $result-> fetch_array()) {
+            // if ($row["list"] == 'โบนัส')
+                    $list = $row["list"];
+            //Jan
+                    if ($row["inputDate"] >= 1514739600 && $row["inputDate"] <= 1517417999)
+                      echo "<tr><td>".$list."</td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+            //Feb
+                    else if($row["inputDate"] >= 1517418000 && $row["inputDate"] <= 1519837199){
+                      echo "<tr><td>".$list."</td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Mar
+                    else if($row["inputDate"] >= 1519837200 && $row["inputDate"] <= 1522515599){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Apr
+                    else if($row["inputDate"] >= 1522515600 && $row["inputDate"] <= 1525107599){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //May
+                    else if($row["inputDate"] >= 1525107600 && $row["inputDate"] <= 1527785999){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Jun
+                    else if($row["inputDate"] >= 1527786000 && $row["inputDate"] <= 1530377999){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Jul
+                    else if($row["inputDate"] >= 1530378000 && $row["inputDate"] <= 1533056399){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Aug
+                    else if($row["inputDate"] >= 1533056400 && $row["inputDate"] <= 1535734799){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Sep
+                    else if($row["inputDate"] >= 1535734800 && $row["inputDate"] <= 1538326799){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td></tr>";
+                    }
+            //Oct
+                    else if($row["inputDate"] >= 1538326800 && $row["inputDate"] <= 1541005199){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td></tr>";
+                    }
+            //Nov
+                    else if($row["inputDate"] >= 1541005200 && $row["inputDate"] <= 1543597199){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td></tr>";
+                    }
+            //Dec
+                    else if($row["inputDate"] >= 1543597200 && $row["inputDate"] <= 1546275599){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td></tr>";
+                    }
+                  }
+                }
+                else {
+                  echo "0 result";
+                }
+
+                $conn-> close();
+                ?>
+                <tr class="table-active">
+                  <th class="text-center">รวมรายรับ</th>
+                  <?php
+                  $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
+                  if ($conn-> connect_error) {
+                    die("Connection failed:".$conn-> connect_error);
+                  }
+        //total Jan
+                  $sqlJan = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1514739600 AND 1517417999";
+                  $result = $conn-> query($sqlJan);
+                  $val = $result -> fetch_array();
+                  $Jan_total = $val['sum'];
+                  echo "<th>".$Jan_total."</th>";
+
+        //total Feb
+                  $sqlFeb = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1517418000 AND 1519837199";
+                  $result = $conn-> query($sqlFeb);
+                  $val = $result -> fetch_array();
+                  $Feb_total = $val['sum'];
+                  echo "<th>".$Feb_total."</th>";
+
+        //total Mar
+                  $sqlMar = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1519837200 AND 1522515599";
+                  $result = $conn-> query($sqlMar);
+                  $val = $result -> fetch_array();
+                  $Mar_total = $val['sum'];
+                  echo "<th>".$Mar_total."</th>";
+
+        //total Apr
+                  $sqlApr = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1522515600 AND 1525107599";
+                  $result = $conn-> query($sqlApr);
+                  $val = $result -> fetch_array();
+                  $Apr_total = $val['sum'];
+                  echo "<th>".$Apr_total."</th>";
+
+        //total May
+                  $sqlMay = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1525107600 AND 1527785999";
+                  $result = $conn-> query($sqlMay);
+                  $val = $result -> fetch_array();
+                  $May_total = $val['sum'];
+                  echo "<th>".$May_total."</th>";
+
+        //total Jun
+                  $sqlJun = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1527786000 AND 1530377999";
+                  $result = $conn-> query($sqlJun);
+                  $val = $result -> fetch_array();
+                  $Jun_total = $val['sum'];
+                  echo "<th>".$Jun_total."</th>";
+
+        //total Jul
+                  $sqlJul = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1530378000 AND 1533056399";
+                  $result = $conn-> query($sqlJul);
+                  $val = $result -> fetch_array();
+                  $Jul_total = $val['sum'];
+                  echo "<th>".$Jul_total."</th>";
+
+        //total Aug
+                  $sqlAug = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1533056400 AND 1535734799";
+                  $result = $conn-> query($sqlAug);
+                  $val = $result -> fetch_array();
+                  $Aug_total = $val['sum'];
+                  echo "<th>".$Aug_total."</th>";
+
+        //total Sep
+                  $sqlSeb = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1535734800 AND 1538326799";
+                  $result = $conn-> query($sqlSeb);
+                  $val = $result -> fetch_array();
+                  $Seb_total = $val['sum'];
+                  echo "<th>".$Seb_total."</th>";
+
+        //total Oct
+                  $sqlOct = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1538326800 AND 1541005199";
+                  $result = $conn-> query($sqlOct);
+                  $val = $result -> fetch_array();
+                  $Oct_total = $val['sum'];
+                  echo "<th>".$Oct_total."</th>";
+
+        //total Nov
+                  $sqlNov = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1541005200 AND 1543597199";
+                  $result = $conn-> query($sqlNov);
+                  $val = $result -> fetch_array();
+                  $Nov_total = $val['sum'];
+                  echo "<th>".$Nov_total."</th>";
+
+        //total Dec
+                  $sqlDec = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1543597200 AND 1546275599";
+                  $result = $conn-> query($sqlDec);
+                  $val = $result -> fetch_array();
+                  $Dec_total = $val['sum'];
+                  echo "<th>".$Dec_total."</th>";
+
+                  $conn-> close();
+                  ?>
+                </tr>
+              </tbody>
+              <td></td>
+              <thead class="mt-3">
+                <tr class="text-center table-primary">
+                  <th>รายจ่าย</th>
+                  <?php
+                  $month = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dev");
+                  for ($i=0;$i<12;$i++) {
+                    echo "<th></th>";
+                  }
+                  ?>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
+                if ($conn-> connect_error) {
+                  die("Connection failed:".$conn-> connect_error);
+                }
+
+                $sql = "SELECT * FROM moneyout";
+                $result = $conn-> query($sql);
+
+                if($result-> num_rows > 0) {
+                  while($row = $result-> fetch_array()) {
+            // if ($row["list"] == 'โบนัส')
+                    $list = $row["list"];
+            //Jan
+                    if ($row["inputDate"] >= 1514739600 && $row["inputDate"] <= 1517417999)
+                      echo "<tr><td>".$list."</td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+            //Feb
+                    else if($row["inputDate"] >= 1517418000 && $row["inputDate"] <= 1519837199){
+                      echo "<tr><td>".$list."</td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Mar
+                    else if($row["inputDate"] >= 1519837200 && $row["inputDate"] <= 1522515599){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Apr
+                    else if($row["inputDate"] >= 1522515600 && $row["inputDate"] <= 1525107599){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //May
+                    else if($row["inputDate"] >= 1525107600 && $row["inputDate"] <= 1527785999){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Jun
+                    else if($row["inputDate"] >= 1527786000 && $row["inputDate"] <= 1530377999){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Jul
+                    else if($row["inputDate"] >= 1530378000 && $row["inputDate"] <= 1533056399){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Aug
+                    else if($row["inputDate"] >= 1533056400 && $row["inputDate"] <= 1535734799){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td><td></td></tr>";
+                    }
+            //Sep
+                    else if($row["inputDate"] >= 1535734800 && $row["inputDate"] <= 1538326799){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td><td></td></tr>";
+                    }
+            //Oct
+                    else if($row["inputDate"] >= 1538326800 && $row["inputDate"] <= 1541005199){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td><td></td></tr>";
+                    }
+            //Nov
+                    else if($row["inputDate"] >= 1541005200 && $row["inputDate"] <= 1543597199){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td><td></td></tr>";
+                    }
+            //Dec
+                    else if($row["inputDate"] >= 1543597200 && $row["inputDate"] <= 1546275599){
+                      echo "<tr><td>".$list."</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>".$row["balance"]."</td></tr>";
+                    }
+                  }
+                }
+                else {
+                  echo "0 result";
+                }
+
+                $conn-> close();
+                ?>
+                <tr class="table-active">
+                  <th class="text-center">รวมรายจ่าย</th>
+                  <?php
+                  $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
+                  if ($conn-> connect_error) {
+                    die("Connection failed:".$conn-> connect_error);
+                  }
+        //total Jan
+                  $sqlJan = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1514739600 AND 1517417999";
+                  $result = $conn-> query($sqlJan);
+                  $val = $result -> fetch_array();
+                  $Jan_total = $val['sum'];
+                  echo "<th>".$Jan_total."</th>";
+
+        //total Feb
+                  $sqlFeb = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1517418000 AND 1519837199";
+                  $result = $conn-> query($sqlFeb);
+                  $val = $result -> fetch_array();
+                  $Feb_total = $val['sum'];
+                  echo "<th>".$Feb_total."</th>";
+
+        //total Mar
+                  $sqlMar = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1519837200 AND 1522515599";
+                  $result = $conn-> query($sqlMar);
+                  $val = $result -> fetch_array();
+                  $Mar_total = $val['sum'];
+                  echo "<th>".$Mar_total."</th>";
+
+        //total Apr
+                  $sqlApr = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1522515600 AND 1525107599";
+                  $result = $conn-> query($sqlApr);
+                  $val = $result -> fetch_array();
+                  $Apr_total = $val['sum'];
+                  echo "<th>".$Apr_total."</th>";
+
+        //total May
+                  $sqlMay = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1525107600 AND 1527785999";
+                  $result = $conn-> query($sqlMay);
+                  $val = $result -> fetch_array();
+                  $May_total = $val['sum'];
+                  echo "<th>".$May_total."</th>";
+
+        //total Jun
+                  $sqlJun = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1527786000 AND 1530377999";
+                  $result = $conn-> query($sqlJun);
+                  $val = $result -> fetch_array();
+                  $Jun_total = $val['sum'];
+                  echo "<th>".$Jun_total."</th>";
+
+        //total Jul
+                  $sqlJul = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1530378000 AND 1533056399";
+                  $result = $conn-> query($sqlJul);
+                  $val = $result -> fetch_array();
+                  $Jul_total = $val['sum'];
+                  echo "<th>".$Jul_total."</th>";
+
+        //total Aug
+                  $sqlAug = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1533056400 AND 1535734799";
+                  $result = $conn-> query($sqlAug);
+                  $val = $result -> fetch_array();
+                  $Aug_total = $val['sum'];
+                  echo "<th>".$Aug_total."</th>";
+
+        //total Sep
+                  $sqlSeb = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1535734800 AND 1538326799";
+                  $result = $conn-> query($sqlSeb);
+                  $val = $result -> fetch_array();
+                  $Seb_total = $val['sum'];
+                  echo "<th>".$Seb_total."</th>";
+
+        //total Oct
+                  $sqlOct = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1538326800 AND 1541005199";
+                  $result = $conn-> query($sqlOct);
+                  $val = $result -> fetch_array();
+                  $Oct_total = $val['sum'];
+                  echo "<th>".$Oct_total."</th>";
+
+        //total Nov
+                  $sqlNov = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1541005200 AND 1543597199";
+                  $result = $conn-> query($sqlNov);
+                  $val = $result -> fetch_array();
+                  $Nov_total = $val['sum'];
+                  echo "<th>".$Nov_total."</th>";
+
+        //total Dec
+                  $sqlDec = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1543597200 AND 1546275599";
+                  $result = $conn-> query($sqlDec);
+                  $val = $result -> fetch_array();
+                  $Dec_total = $val['sum'];
+                  echo "<th>".$Dec_total."</th>";
+
+                  $conn-> close();
+                  ?>
+                </tr>
+                <tr>
+                  <th class="table-dark text-center">เงินคงเหลือ</th>
+                </tr>
+              </tbody>
+            </table>
           </div>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
-  <!-- button -->
-</body>
-
-</html>
+          <!-- table รายรับ-รายจ่าย -->
+        </body>
+        </html>
