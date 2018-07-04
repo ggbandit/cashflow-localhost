@@ -28,6 +28,7 @@
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="js/script.js"></script>
+  <script src="js/getDataGraph.js"></script>
 
   <title>Cash Flow Synerry</title>
 </head>
@@ -73,108 +74,50 @@
         </li>
       </ul>
     </div>
-    <canvas id="myChart" width="120vw" height="40vh"></canvas>
-    <script>
-      var ctx = document.getElementById("myChart");
-      var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-          datasets: [{
-            label: '# of Votes',
-            data: [12, 15, 3, 5, 2, 3],
-            backgroundColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-            ],
-            borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1,
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero:true,
-                fontColor:'white'
-              },
-              gridLines: {
-                display: false ,
-                color: "#111"
-              },
-            }],
-            xAxes: [{
-              ticks: {
-                fontColor:'white'
-              },
-              gridLines: {
-                display: false ,
-                color: "#111"
-              },
-            }]
-          },
-          legend: {
-            labels: {
-                // This more specific font property overrides the global property
-                fontColor: 'white'
-            }
-        }
-        }
-      });
-    </script>
+    <div id="chart-container">
+      <canvas id="mycanvas" width="120vw" height="40vh"></canvas>
+    </div>
+    </div>
+    <!-- Graph -->
 
-  </div>
-  <!-- Graph -->
-  
-  <!-- button -->
-  <div class="container-fluid my-4">
-    <!-- Button to Open the Modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-      เพิ่มรายการ
-    </button>
+    <!-- button -->
+    <div class="container-fluid my-4">
+      <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        เพิ่มรายการ
+      </button>
 
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
 
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title modal-title-padding">เพิ่มรายการ</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-
-          <!-- Modal body -->
-          <div class="modal-body">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-              <label class="form-check-label" for="inlineRadio1">รายรับ</label>
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title modal-title-padding">เพิ่มรายการ</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">รายจ่าย</label>
-            </div>
-            <div class="form-inline pt-3">
-              <label class="pr-3" for="datepicker">วันที่</label>
-              <input id="datepicker" width="276" />
-              <script>
-                $('#datepicker').datepicker({
-                  uiLibrary: 'bootstrap4',
-                  format: 'dd-mm-yyyy'
-                });
-              </script>
-            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">รายรับ</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">รายจ่าย</label>
+              </div>
+              <div class="form-inline pt-3">
+                <label class="pr-3" for="datepicker">วันที่</label>
+                <input id="datepicker" width="276" />
+                <script>
+                  $('#datepicker').datepicker({
+                    uiLibrary: 'bootstrap4',
+                    format: 'dd-mm-yyyy'
+                  });
+                </script>
+              </div>
             <!-- <label class="padding">รายการ</label>
               <label class="padding2">ยอดเงิน</label> -->
 
@@ -294,91 +237,93 @@
                   if ($conn-> connect_error) {
                     die("Connection failed:".$conn-> connect_error);
                   }
-        //total Jan
+                  //total Jan
                   $sqlJan = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1514739600 AND 1517417999";
                   $result = $conn-> query($sqlJan);
                   $val = $result -> fetch_array();
                   $Jan_total = $val['sum'];
                   echo "<th>".$Jan_total."</th>";
 
-        //total Feb
+                  //total Feb
                   $sqlFeb = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1517418000 AND 1519837199";
                   $result = $conn-> query($sqlFeb);
                   $val = $result -> fetch_array();
                   $Feb_total = $val['sum'];
                   echo "<th>".$Feb_total."</th>";
 
-        //total Mar
+                  //total Mar
                   $sqlMar = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1519837200 AND 1522515599";
                   $result = $conn-> query($sqlMar);
                   $val = $result -> fetch_array();
                   $Mar_total = $val['sum'];
                   echo "<th>".$Mar_total."</th>";
 
-        //total Apr
+                  //total Apr
                   $sqlApr = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1522515600 AND 1525107599";
                   $result = $conn-> query($sqlApr);
                   $val = $result -> fetch_array();
                   $Apr_total = $val['sum'];
                   echo "<th>".$Apr_total."</th>";
 
-        //total May
+                  //total May
                   $sqlMay = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1525107600 AND 1527785999";
                   $result = $conn-> query($sqlMay);
                   $val = $result -> fetch_array();
                   $May_total = $val['sum'];
                   echo "<th>".$May_total."</th>";
 
-        //total Jun
+                  //total Jun
                   $sqlJun = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1527786000 AND 1530377999";
                   $result = $conn-> query($sqlJun);
                   $val = $result -> fetch_array();
                   $Jun_total = $val['sum'];
                   echo "<th>".$Jun_total."</th>";
 
-        //total Jul
+                  //total Jul
                   $sqlJul = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1530378000 AND 1533056399";
                   $result = $conn-> query($sqlJul);
                   $val = $result -> fetch_array();
                   $Jul_total = $val['sum'];
                   echo "<th>".$Jul_total."</th>";
 
-        //total Aug
+                  //total Aug
                   $sqlAug = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1533056400 AND 1535734799";
                   $result = $conn-> query($sqlAug);
                   $val = $result -> fetch_array();
                   $Aug_total = $val['sum'];
                   echo "<th>".$Aug_total."</th>";
 
-        //total Sep
+                  //total Sep
                   $sqlSeb = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1535734800 AND 1538326799";
                   $result = $conn-> query($sqlSeb);
                   $val = $result -> fetch_array();
                   $Seb_total = $val['sum'];
                   echo "<th>".$Seb_total."</th>";
 
-        //total Oct
+                  //total Oct
                   $sqlOct = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1538326800 AND 1541005199";
                   $result = $conn-> query($sqlOct);
                   $val = $result -> fetch_array();
                   $Oct_total = $val['sum'];
                   echo "<th>".$Oct_total."</th>";
 
-        //total Nov
+                  //total Nov
                   $sqlNov = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1541005200 AND 1543597199";
                   $result = $conn-> query($sqlNov);
                   $val = $result -> fetch_array();
                   $Nov_total = $val['sum'];
                   echo "<th>".$Nov_total."</th>";
 
-        //total Dec
+                  //total Dec
                   $sqlDec = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1543597200 AND 1546275599";
                   $result = $conn-> query($sqlDec);
                   $val = $result -> fetch_array();
                   $Dec_total = $val['sum'];
                   echo "<th>".$Dec_total."</th>";
 
-                  $conn-> close();
+                  $result->close();
+
+                  $conn->close();
                   ?>
                 </tr>
               </tbody>
