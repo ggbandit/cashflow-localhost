@@ -34,7 +34,7 @@
 
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-md navbar-light sticky-top">
+  <nav class="navbar navbar-expand-md navbar-light sticky-top" id="spnTop">
     <div class="container-fluid">
       <a class="cashflow">Cash Flow</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -43,16 +43,16 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link " href="#">ภาพรวม</a>
+            <a class="nav-link ภาพรวม" href=".ภาพรวม">ภาพรวม</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">รายรับ</a>
+            <a class="nav-link" href="#รายรับ">รายรับ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">รายจ่าย</a>
+            <a class="nav-link" href="#รายจ่าย">รายจ่าย</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">รายงาน</a>
+            <a class="nav-link" href="#รายงาน" id="รายงาน">รายงาน</a>
           </li>
         </ul>
       </div>
@@ -149,7 +149,7 @@
             <table class="table table-striped table-sm">
               <thead>
                 <tr class="bg-info">
-                  <th class="text-center">รายรับ</th>
+                  <th class="text-center" id="รายรับ">รายรับ</th>
                   <?php
                   $month = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dev");
                   for ($i=0;$i<12;$i++) {
@@ -322,13 +322,13 @@
                   ?>
                 </tr>
               </tbody>
-              <thead class="mt-3">
-                <tr class="text-center bg-info">
-                  <th>รายจ่าย</th>
+              <thead>
+                <tr class="bg-info">
+                  <th class="text-center" id="รายจ่าย">รายจ่าย</th>
                   <?php
                   $month = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dev");
                   for ($i=0;$i<12;$i++) {
-                    echo "<th></th>";
+                    echo "<th>".$month[$i]."</th>";
                   }
                   ?>
                 </tr>
@@ -656,5 +656,21 @@
             </table>
           </div>
           <!-- table รายรับ-รายจ่าย -->
+          <script>
+            $("a[href^='.ภาพรวม']").click(function(e) {
+              e.preventDefault();
+              var position = $($(this).attr("href")).offset().top;
+              $("body, html").animate({
+                scrollTop: 0
+              } /* speed */ ,500);
+            });
+            $("a[href^='#']").click(function(e) {
+              e.preventDefault();
+              var position = $($(this).attr("href")).offset().top;
+              $("body, html").animate({
+                scrollTop: position
+              } /* speed */ ,600);
+            });
+          </script>
         </body>
         </html>
