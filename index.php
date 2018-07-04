@@ -74,45 +74,65 @@
       </ul>
     </div>
     <canvas id="myChart" width="120vw" height="40vh"></canvas>
-<script>
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
+    <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [{
             label: '# of Votes',
             data: [12, 15, 3, 5, 2, 3],
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
+            borderWidth: 1,
+          }]
+        },
+        options: {
+          scales: {
             yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
+              ticks: {
+                beginAtZero:true,
+                fontColor:'white'
+              },
+              gridLines: {
+                display: false ,
+                color: "#111"
+              },
+            }],
+            xAxes: [{
+              ticks: {
+                fontColor:'white'
+              },
+              gridLines: {
+                display: false ,
+                color: "#111"
+              },
             }]
+          },
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: 'white'
+            }
         }
-    }
-});
-</script>
+        }
+      });
+    </script>
 
   </div>
   <!-- Graph -->
