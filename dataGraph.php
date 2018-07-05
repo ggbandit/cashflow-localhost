@@ -85,10 +85,81 @@ $data = array($Jan_total,$Feb_total,$Mar_total,$Apr_total,$May_total,$Jun_total,
 //free memory associated with result
 $result->close();
 
+//total Jan out
+$sqlJan = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1514739600 AND 1517417999";
+$result = $conn-> query($sqlJan);
+$val = $result -> fetch_array();
+$Jan_total_out = $val['sum'];
+//total Feb out
+$sqlFeb = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1517418000 AND 1519837199";
+$result = $conn-> query($sqlFeb);
+$val = $result -> fetch_array();
+$Feb_total_out = $val['sum'];
+//total Mar out
+$sqlMar = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1519837200 AND 1522515599";
+$result = $conn-> query($sqlMar);
+$val = $result -> fetch_array();
+$Mar_total_out = $val['sum'];
+//total Apr out
+$sqlApr = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1522515600 AND 1525107599";
+$result = $conn-> query($sqlApr);
+$val = $result -> fetch_array();
+$Apr_total_out = $val['sum'];
+//total May out
+$sqlMay = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1525107600 AND 1527785999";
+$result = $conn-> query($sqlMay);
+$val = $result -> fetch_array();
+$May_total_out = $val['sum'];
+//total Jun out
+$sqlJun = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1527786000 AND 1530377999";
+$result = $conn-> query($sqlJun);
+$val = $result -> fetch_array();
+$Jun_total_out = $val['sum'];
+//total Jul out
+$sqlJul = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1530378000 AND 1533056399";
+$result = $conn-> query($sqlJul);
+$val = $result -> fetch_array();
+$Jul_total_out = $val['sum'];
+//total Aug out
+$sqlAug = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1533056400 AND 1535734799";
+$result = $conn-> query($sqlAug);
+$val = $result -> fetch_array();
+$Aug_total_out = $val['sum'];
+//total Sep out
+$sqlSeb = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1535734800 AND 1538326799";
+$result = $conn-> query($sqlSeb);
+$val = $result -> fetch_array();
+$Seb_total_out = $val['sum'];
+//total Oct out
+$sqlOct = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1538326800 AND 1541005199";
+$result = $conn-> query($sqlOct);
+$val = $result -> fetch_array();
+$Oct_total_out = $val['sum'];
+//total Nov out
+$sqlNov = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1541005200 AND 1543597199";
+$result = $conn-> query($sqlNov);
+$val = $result -> fetch_array();
+$Nov_total_out = $val['sum'];
+//total Dec out
+$sqlDec = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1543597200 AND 1546275599";
+$result = $conn-> query($sqlDec);
+$val = $result -> fetch_array();
+$Dec_total_out = $val['sum'];
+
+//loop through the returned data
+$data_out = array($Jan_total_out,$Feb_total_out,$Mar_total_out,$Apr_total_out,$May_total_out,$Jun_total_out,$Jul_total_out,$Aug_total_out,$Seb_total_out,$Oct_total_out,$Nov_total_out,$Dec_total_out);
+
+
+
+
+//free memory associated with result
+$result->close();
+
 //close connection
 $conn->close();
+$arr = array($data,$data_out);
 
 //now print the data
-print json_encode($data);
+print json_encode($arr);
 
 ?>
