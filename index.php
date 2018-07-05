@@ -83,47 +83,47 @@
     <div id="chart-container">
       <canvas id="mycanvas" width="120vw" height="40vh"></canvas>
     </div>
-    </div>
-    <!-- Graph -->
+  </div>
+  <!-- Graph -->
+<div style="background-color: #e9edee;">
+  <!-- button -->
+  <div class="container-fluid mb-4">
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      เพิ่มรายการ
+    </button>
 
-    <!-- button -->
-    <div class="container-fluid my-4">
-      <!-- Button to Open the Modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-        เพิ่มรายการ
-      </button>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
 
-      <!-- The Modal -->
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title modal-title-padding">เพิ่มรายการ</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title modal-title-padding">เพิ่มรายการ</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">รายรับ</label>
             </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">รายรับ</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">รายจ่าย</label>
-              </div>
-              <div class="form-inline pt-3">
-                <label class="pr-3" for="datepicker">วันที่</label>
-                <input id="datepicker" width="276" />
-                <script>
-                  $('#datepicker').datepicker({
-                    uiLibrary: 'bootstrap4',
-                    format: 'dd-mm-yyyy'
-                  });
-                </script>
-              </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">รายจ่าย</label>
+            </div>
+            <div class="form-inline pt-3">
+              <label class="pr-3" for="datepicker">วันที่</label>
+              <input id="datepicker" width="276" />
+              <script>
+                $('#datepicker').datepicker({
+                  uiLibrary: 'bootstrap4',
+                  format: 'dd-mm-yyyy'
+                });
+              </script>
+            </div>
             <!-- <label class="padding">รายการ</label>
               <label class="padding2">ยอดเงิน</label> -->
 
@@ -154,8 +154,8 @@
           <!-- button -->
 
           <!-- table รายรับ-รายจ่าย -->
-          <div class="table-responsive">
-            <table class="table table-striped table-sm" id="Table-income">
+          <div class="table-responsive" style="background-color: #e9edee;">
+            <table id="" class="display table table-striped table-sm" style="width:100%">
               <thead>
                 <tr class="bg-info">
                   <th class="text-center" id="รายรับ">รายรับ</th>
@@ -236,6 +236,8 @@
 
                 $conn-> close();
                 ?>
+              </tbody>
+              <tfoot>
                 <tr class="table-active">
                   <th class="text-center">รวมรายรับ</th>
                   <?php
@@ -332,11 +334,9 @@
                   $conn->close();
                   ?>
                 </tr>
-              </tbody>
+              </tfoot>
             </table>
-          </div>
-          <div>
-            <table table class="table table-striped table-sm" id="Table-moneyout">
+            <table id="" class="display table table-striped table-sm" style="width:100%">
               <thead>
                 <tr class="bg-info">
                   <th class="text-center" id="รายจ่าย">รายจ่าย</th>
@@ -417,6 +417,8 @@
 
                 $conn-> close();
                 ?>
+              </tbody>
+              <tfoot>
                 <tr class="table-active">
                   <th class="text-center">รวมรายจ่าย</th>
                   <?php
@@ -511,7 +513,7 @@
                   $conn-> close();
                   ?>
                 </tr>
-                <tr class="bg-dark" style="color:white;">
+                                <tr class="bg-dark" style="color:white;">
                   <th class="text-center">เงินคงเหลือ</th>
                   <?php 
                   $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
@@ -667,206 +669,13 @@
                   $conn-> close();
                   ?>
                 </tr>
-              </tbody>
+              </tfoot>
             </table>
           </div>
-          <div>
-            <table id="" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>$433,060</td>
-            </tr>
-            <tr>
-                <td>Sonya Frost</td>
-                <td>Software Engineer</td>
-                <td>Edinburgh</td>
-                <td>23</td>
-                <td>$103,600</td>
-            </tr>
-            <tr>
-                <td>Quinn Flynn</td>
-                <td>Support Lead</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>$342,000</td>
-            </tr>
-            <tr>
-                <td>Dai Rios</td>
-                <td>Personnel Lead</td>
-                <td>Edinburgh</td>
-                <td>35</td>
-                <td>$217,500</td>
-            </tr>
-            <tr>
-                <td>Gavin Joyce</td>
-                <td>Developer</td>
-                <td>Edinburgh</td>
-                <td>42</td>
-                <td>$92,575</td>
-            </tr>
-            <tr>
-                <td>Martena Mccray</td>
-                <td>Post-Sales support</td>
-                <td>Edinburgh</td>
-                <td>46</td>
-                <td>$324,050</td>
-            </tr>
-            <tr>
-                <td>Jennifer Acosta</td>
-                <td>Junior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>43</td>
-                <td>$75,650</td>
-            </tr>
-            <tr>
-                <td>Shad Decker</td>
-                <td>Regional Director</td>
-                <td>Edinburgh</td>
-                <td>51</td>
-                <td>$183,000</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-    </table><table id="" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Jena Gaines</td>
-                <td>Office Manager</td>
-                <td>London</td>
-                <td>30</td>
-                <td>$90,560</td>
-            </tr>
-            <tr>
-                <td>Haley Kennedy</td>
-                <td>Senior Marketing Designer</td>
-                <td>London</td>
-                <td>43</td>
-                <td>$313,500</td>
-            </tr>
-            <tr>
-                <td>Tatyana Fitzpatrick</td>
-                <td>Regional Director</td>
-                <td>London</td>
-                <td>19</td>
-                <td>$385,750</td>
-            </tr>
-            <tr>
-                <td>Michael Silva</td>
-                <td>Marketing Designer</td>
-                <td>London</td>
-                <td>66</td>
-                <td>$198,500</td>
-            </tr>
-            <tr>
-                <td>Bradley Greer</td>
-                <td>Software Engineer</td>
-                <td>London</td>
-                <td>41</td>
-                <td>$132,000</td>
-            </tr>
-            <tr>
-                <td>Angelica Ramos</td>
-                <td>Chief Executive Officer (CEO)</td>
-                <td>London</td>
-                <td>47</td>
-                <td>$1,200,000</td>
-            </tr>
-            <tr>
-                <td>Suki Burks</td>
-                <td>Developer</td>
-                <td>London</td>
-                <td>53</td>
-                <td>$114,500</td>
-            </tr>
-            <tr>
-                <td>Prescott Bartlett</td>
-                <td>Technical Author</td>
-                <td>London</td>
-                <td>27</td>
-                <td>$145,000</td>
-            </tr>
-            <tr>
-                <td>Timothy Mooney</td>
-                <td>Office Manager</td>
-                <td>London</td>
-                <td>37</td>
-                <td>$136,200</td>
-            </tr>
-            <tr>
-                <td>Bruno Nash</td>
-                <td>Software Engineer</td>
-                <td>London</td>
-                <td>38</td>
-                <td>$163,500</td>
-            </tr>
-            <tr>
-                <td>Hermione Butler</td>
-                <td>Regional Director</td>
-                <td>London</td>
-                <td>47</td>
-                <td>$356,250</td>
-            </tr>
-            <tr>
-                <td>Lael Greer</td>
-                <td>Systems Administrator</td>
-                <td>London</td>
-                <td>21</td>
-                <td>$103,500</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-    </table>
-          </div>
+        </div>
           <script>
             $(document).ready( function () {
-                $('#Table-income').DataTable();
-                $('#Table-moneyout').DataTable();
-                $('table.display').DataTable();
+              $('table.display').DataTable();
             });
           </script>
           <!-- table รายรับ-รายจ่าย -->
