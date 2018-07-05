@@ -11,8 +11,12 @@ $(document).ready(function() {
 
     $("#btnSubmit").click(function() {
         var list = $("#list");
+        var list = $("#list2");
+        var list = $("#list3");
         var inputDate = $('#datepicker');
         var balance = $("#balance");
+        var balance = $("#balance2");
+        var balance = $("#balance3");
         var checked_radio = $('input:radio[name=inlineRadioOptions]:checked').val();
 
         if (isNotEmpty(list) && isNotEmpty(balance) && checked_radio == 'option1') {

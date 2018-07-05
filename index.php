@@ -152,6 +152,10 @@
           <!-- table รายรับ-รายจ่าย -->
           <div class="table-responsive" style="background-color: #e9edee;">
             <table id="" class="display table table-striped table-sm" style="width:100%">
+                                              <!-- Button to Open the Modal -->
+                  <button type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#myModal">
+                    เพิ่มรายการ
+                  </button>
               <thead>
                 <tr class="bg-info">
                   <th class="text-center" id="รายรับ">รายรับ</th>
@@ -665,7 +669,7 @@
                   $conn-> close();
                   ?>
     <!-- Button to Open the Modal -->
-    <button type="button" class="btn btn-primary mx-auto d-block" data-toggle="modal" data-target="#myModal">
+    <button type="button" class="btn btn-primary ml-2 mb-2" data-toggle="modal" data-target="#myModal">
       เพิ่มรายการ
     </button>
                 </tr>
