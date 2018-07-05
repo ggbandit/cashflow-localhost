@@ -85,13 +85,9 @@
     </div>
   </div>
   <!-- Graph -->
-<div style="background-color: #e9edee;">
+<div>
   <!-- button -->
-  <div class="container-fluid mb-4">
-    <!-- Button to Open the Modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-      เพิ่มรายการ
-    </button>
+  <div class="container-fluid">
 
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
@@ -668,6 +664,10 @@
 
                   $conn-> close();
                   ?>
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary mx-auto d-block" data-toggle="modal" data-target="#myModal">
+      เพิ่มรายการ
+    </button>
                 </tr>
               </tfoot>
             </table>
