@@ -112,7 +112,8 @@
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">รายจ่าย</label>
               </div>
-              <div class="form-inline pt-3">
+              <div class="form-group">
+                <form class="form-inline" name="add_new" id="add_new">
                 <label class="pr-3" for="datepicker">วันที่</label>
                 <input id="datepicker" width="276" />
                 <script>
@@ -121,19 +122,20 @@
                     format: 'dd-mm-yyyy'
                   });
                 </script>
-              </div>
+              
             <!-- <label class="padding">รายการ</label>
               <label class="padding2">ยอดเงิน</label> -->
 
-              <div class="form-group form-inline">
-                <ol id="dynamic_field">
+              
+                <ol class="form-inline" id="dynamic_field">
                  <li class="mt-3">
                   <input class="form-control" type="text" name="list[]" placeholder="รายการ">
                   <input class="form-control" type="text" name="balance[]" placeholder="ยอดเงิน">
                 </li>
               </ol>
+              </form>
             </div>
-              <button type="button" class="btn btn-sm float-right" id="clone">
+              <button type="button" class="btn btn-success btn-outline-white btn-rounded btn-sm waves-effect waves-light float-right" id="clone">
                 <i class="fa fa-plus"></i>
               </button>
             <script>

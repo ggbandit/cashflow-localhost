@@ -11,12 +11,18 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 } 
-
-if (isset($_POST['key'])) {
-
-  $list = $conn->real_escape_string($_POST['list']);
-  $inputDate = strtotime($conn->real_escape_string($_POST['inputDate']));
-  $balance = $conn->real_escape_string($_POST['balance']);
+  $number = count($_POST["list"]);
+  if($number > 1) {
+      for($i=0; $i<$number; $i++)
+      {
+        if (trim($_POST["list"][$i]) != '' && trim($_POST["balance"][$i]) != '') {
+          $sql =  $conn->query("INSERT INTO income (list, inputDate, balance)
+      VALUES ('$list', '$inputDate', '$balance')");
+        }
+      }
+  } else {
+    echo "Please fill input";
+  }
 
   if ($_POST['key'] == 'income') {
     $sql =  $conn->query("INSERT INTO income (list, inputDate, balance)
@@ -28,7 +34,6 @@ if (isset($_POST['key'])) {
       VALUES ('$list', '$inputDate', '$balance')");
     exit('Insert success!');
   }
-}
 
 $conn->close();
 ?>
