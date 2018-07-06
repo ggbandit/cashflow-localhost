@@ -132,7 +132,7 @@
               </ol>
               </form>
             </div>
-              <button type="button" class="btn btn-success btn-outline-white btn-rounded btn-sm waves-effect waves-light float-right" id="clone">
+              <button type="button" class="btn btn-success btn-outline-white btn-rounded waves-effect waves-light float-right " id="clone">
                 <i class="fa fa-plus"></i>
               </button>
             <script>
