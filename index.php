@@ -39,9 +39,6 @@
 </head>
 
 <body>
-  <p>Click on this paragraph.</p>
-
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-md navbar-light sticky-top" id="spnTop">
     <div class="container-fluid">
@@ -113,9 +110,9 @@
                 <label class="form-check-label" for="inlineRadio2">รายจ่าย</label>
               </div>
               <div class="form-group">
-                <form class="form-inline" name="add_new" id="add_new">
+                <form class="form-inline pt-2" name="add_new" id="add_new">
                 <label class="pr-3" for="datepicker">วันที่</label>
-                <input id="datepicker" width="276" />
+                <input id="datepicker" name="datepicker" width="276" />
                 <script>
                   $('#datepicker').datepicker({
                     uiLibrary: 'bootstrap4',
@@ -129,8 +126,8 @@
               
                 <ol class="form-inline" id="dynamic_field">
                  <li class="mt-3">
-                  <input class="form-control" type="text" name="list[]" placeholder="รายการ">
-                  <input class="form-control" type="text" name="balance[]" placeholder="ยอดเงิน">
+                  <input class="form-control" type="text" id="list" name="list[]" placeholder="รายการ">
+                  <input class="form-control" type="text" id="balance" name="balance[]" placeholder="ยอดเงิน">
                 </li>
               </ol>
               </form>

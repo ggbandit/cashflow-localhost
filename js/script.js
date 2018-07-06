@@ -10,11 +10,13 @@ $(document).ready(function() {
     }
 
     $("#btnSubmit").click(function() {
+        var list = $('#list');
+        var balance = $('#balance');
         var checked_radio = $('input:radio[name=inlineRadioOptions]:checked').val();
 
-        if (checked_radio == 'option1') {
+        if (isNotEmpty(list) && isNotEmpty(balance) && checked_radio == 'option1') {
             $.ajax({
-                url: 'ajax.php',
+                url: 'incomePost.php',
                 method: 'POST',
                 dataType: 'text',
                 data: $('#add_new').serialize(),
@@ -23,19 +25,15 @@ $(document).ready(function() {
                     $('#add_new')[0].reset();
                 }
             });
-        } else if (checked_radio == 'option2') {
+        } else if (isNotEmpty(list) && isNotEmpty(balance) && checked_radio == 'option2') {
             $.ajax({
-                url: 'ajax.php',
+                url: 'moneyoutPost.php',
                 method: 'POST',
                 dataType: 'text',
-                data: {
-                    key: 'moneyout',
-                    list: list.val(),
-                    inputDate: inputDate.val(),
-                    balance: balance.val()
-                },
-                success: function(response) {
-                    alert(response);
+                data: $('#add_new').serialize(),
+                success: function(data) {
+                    alert(data);
+                    $('#add_new')[0].reset();
                 }
             });
         }
