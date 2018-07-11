@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "http://localhost/cashflow/dataGraph.php",
+        url: "http://synerry.com/cash-flow/dataGraph.php",
         method: "GET",
         success: function(data) {
             var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Seb', 'Oct', 'Nov', 'Dec'];

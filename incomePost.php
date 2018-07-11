@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "chanpreecha1!";
-$dbname = "cashflow";
+$username = "synerry_cash";
+$password = "itoL2oAZ7";
+$dbname = "synerry_cash";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -19,9 +19,11 @@ if ($conn->connect_error) {
   if(!empty($list) && !empty($balance) && !empty($inputDate)) {
       for($i=0; $i<$number; $i++)
       {
-        $sql =  $conn->query("INSERT INTO income (list, inputDate, balance)
-      VALUES ('$list[$i]','$inputDate','$balance[$i]')");         
-        }
+          if (!empty($list[$i]) && !empty($balance[$i])) {
+            $sql =  $conn->query("INSERT INTO income (list, inputDate, balance)
+              VALUES ('$list[$i]','$inputDate','$balance[$i]')");
+          }           
+      }
         exit('Insert success!'); 
       }
    else if (empty($inputDate)) {

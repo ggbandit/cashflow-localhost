@@ -4,9 +4,10 @@ header('Content-Type: application/json');
 
 //setting database
 $servername = "localhost";
-$username = "root";
-$password = "chanpreecha1!";
-$dbname = "cashflow";
+$username = "synerry_cash";
+$password = "itoL2oAZ7";
+$dbname = "synerry_cash";
+
 
 //get connection
 $conn = new mysqli($servername, $username, $password, $dbname);
