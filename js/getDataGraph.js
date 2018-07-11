@@ -38,22 +38,16 @@ $(document).ready(function() {
             var chartOptions = {
                 scales: {
                     xAxes: [{
-                        ticks: {
-                            fontColor: 'white'
-                        },
                         gridLines: {
                             display: false,
-                            color: "#111"
+                            color: "#ffffff"
                         },
                     }],
                     yAxes: 
                     [{
-                        ticks: {
-                            fontColor: 'white'
-                        },
                         gridLines: {
                             display: false,
-                            color: "#111"
+                            color: "#ffffff"
                         },
                         id: "y-axis-income",
                         id: "y-axis-moneyout"
@@ -61,11 +55,10 @@ $(document).ready(function() {
                     legend: {
                             labels: {
                                 // This more specific font property overrides the global property
-                                fontColor: '#ffffff'
+                                fontColor: "#ffffff"
                             }
                         }
                 }
-
             };
 
             var ctx = $("#mycanvas");

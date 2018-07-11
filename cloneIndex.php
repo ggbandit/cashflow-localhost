@@ -94,25 +94,41 @@
           <div class="col">
             <div class="col">
               <div class="card">
-                <div class="card-body m-2">
+                <div class="card-header">
+                  Featured
+                </div>
+                <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <button type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#myModal">
+                    เพิ่มรายการ
+                  </button>
                 </div>
               </div>
             </div>
             <div class="col mt-2">
               <div class="card">
-                <div class="card-body m-2">
+                <div class="card-header">
+                  Featured
+                </div>
+                <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <button type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#myModal">
+                    เพิ่มรายการ
+                  </button>
                 </div>
               </div>
             </div>
             <div class="col mt-2">
               <div class="card">
-                <div class="card-body m-2">
-                  <h5 class="card-title ">Special title treatment</h5>
+                <div class="card-header">
+                  Featured
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
             </div>

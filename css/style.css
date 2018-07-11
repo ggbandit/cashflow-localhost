@@ -1,7 +1,11 @@
 html, body {
   height: 100%;
   width: 100%;
-  background-color: #e9edee;
+}
+
+
+.bg1 {
+	background-color: #f2f4f8;
 }
 
 .navbar {
@@ -42,17 +46,7 @@ html, body {
   padding-right: 10px;
 }
 
-button, input, optgroup, select, textarea {
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
+
 
 .sections input[type="text"]
 {
@@ -63,25 +57,11 @@ button, input, optgroup, select, textarea {
 }
 
 
-.c {
-  font-size: 30px;
-}
 
-.right-addon .glyphicon {
-  right: 0px;
-}
 
-.right-addon input {
-  padding-right: 20px;
-}
-
-.table-bg {
-  background-color: #3964a3;
-  color: white;
-}
 
 a {
-    color: white;
+    color: #303a46;
 }
 #Graph {
   background: url('../img/background-graph.jpg') no-repeat center center fixed;
