@@ -46,7 +46,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-md navbar-light sticky-top" id="spnTop">
     <div class="container-fluid">
-      <a class="cashflow">Cash Flow</a>
+      <a class="synerry_cash">Cash Flow</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -70,25 +70,19 @@
   </nav>
   <!-- Graph -->
   <div class="container-fluid bg1">
-    <div class="landing-text">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Week</a>
-        </li>
-        <li class="nav-item"> 
-          <a class="nav-link" href="#">Month</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Year</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="row">
+    <div class="row pt-4">
       <div class="col-lg-12 col-md-12 col-sm-6" >
         <div class="row">
           <div class="col-lg-9 col-md-9 col-sm-12 mb-2" >
             <div class="form-control ml-4 pure-up" id="chart-container" style="background-color: white;">
+              <div class="form-inline" style="padding:10px;">
+                <label>Choose Option</label>
+                <select class="form-control ml-3" style="width:140px;" id="category_faq">
+                  <option value="1">Today</option>
+                  <option value="2">This Month</option>
+                  <option value="3">This Year</option>
+                </select>
+              </div>
               <canvas id="mycanvas" width="120vw" height="50vh" ></canvas>
             </div>
           </div>
@@ -96,306 +90,30 @@
             <div class="col">
               <div class="card">
                 <div class="card-body m-2">
-                  <div class="h4" style="border-bottom: 1px solid">รวมรายรับ</div>
-                  <h2 class="card-text text-center">
-                    <?php 
-                $conn = mysqli_connect("localhost","synerry_cash","itoL2oAZ7","synerry_cash");
-                if ($conn-> connect_error) {
-                  die("Connection failed:".$conn-> connect_error);
-                }
-
-                $sqlJan = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1514739600 AND 1517417999";
-                $result = $conn-> query($sqlJan);
-                $val = $result -> fetch_array();
-                $IncomeJan_total = $val['sum'];
-
-                $sqlFeb = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1517418000 AND 1519837199";
-                $result = $conn-> query($sqlFeb);
-                $val = $result -> fetch_array();
-                $IncomeFeb_total = $val['sum'];
-
-                $sqlMar = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1519837200 AND 1522515599";
-                $result = $conn-> query($sqlMar);
-                $val = $result -> fetch_array();
-                $IncomeMar_total = $val['sum'];
-
-                $sqlApr = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1522515600 AND 1525107599";
-                $result = $conn-> query($sqlApr);
-                $val = $result -> fetch_array();
-                $IncomeApr_total = $val['sum'];
-
-                $sqlMay = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1525107600 AND 1527785999";
-                $result = $conn-> query($sqlMay);
-                $val = $result -> fetch_array();
-                $IncomeMay_total = $val['sum'];
-
-                $sqlJun = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1527786000 AND 1530377999";
-                $result = $conn-> query($sqlJun);
-                $val = $result -> fetch_array();
-                $IncomeJun_total = $val['sum'];
-
-                $sqlJul = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1530378000 AND 1533056399";
-                $result = $conn-> query($sqlJul);
-                $val = $result -> fetch_array();
-                $IncomeJul_total = $val['sum'];
-
-                $sqlAug = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1533056400 AND 1535734799";
-                $result = $conn-> query($sqlAug);
-                $val = $result -> fetch_array();
-                $IncomeAug_total = $val['sum'];
-
-                $sqlSeb = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1535734800 AND 1538326799";
-                $result = $conn-> query($sqlSeb);
-                $val = $result -> fetch_array();
-                $IncomeSeb_total = $val['sum'];
-
-                $sqlOct = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1538326800 AND 1541005199";
-                $result = $conn-> query($sqlOct);
-                $val = $result -> fetch_array();
-                $IncomeOct_total = $val['sum'];
-
-                $sqlNov = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1541005200 AND 1543597199";
-                $result = $conn-> query($sqlNov);
-                $val = $result -> fetch_array();
-                $IncomeNov_total = $val['sum'];
-
-                $sqlDec = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1543597200 AND 1546275599";
-                $result = $conn-> query($sqlDec);
-                $val = $result -> fetch_array();
-                $IncomeDec_total = $val['sum'];
-
-                $sumIncome = $IncomeJan_total+$IncomeFeb_total+$IncomeMar_total+$IncomeApr_total+$IncomeMay_total+$IncomeJun_total+$IncomeJul_total +$IncomeAug_total+$IncomeSeb_total+$IncomeOct_total+$IncomeNov_total
-                  +$IncomeDec_total;
-                  echo $sumIncome;
-                  $conn-> close();
-                    ?>
-                  </h2>
+                  <div class="h4 py-2" style="border-bottom: 1px solid">รวมรายรับ</div>
+                  <div class="h1 card-text text-center" id="income">
+                    <!-- data here -->
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col mt-2">
+            <div class="col mt-3">
               <div class="card">
                 <div class="card-body m-2">
-                  <div class="h4" style="border-bottom: 1px solid">รวมรายจ่าย</div>
-                  <h2 class="card-text text-center">
-                <?php 
-                $conn = mysqli_connect("localhost","synerry_cash","itoL2oAZ7","synerry_cash");
-                if ($conn-> connect_error) {
-                  die("Connection failed:".$conn-> connect_error);
-                }
-
-                $sqlJan = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1514739600 AND 1517417999";
-                $result = $conn-> query($sqlJan);
-                $val = $result -> fetch_array();
-                $MoneyOutJan_total = $val['sum'];
-
-                $sqlFeb = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1517418000 AND 1519837199";
-                $result = $conn-> query($sqlFeb);
-                $val = $result -> fetch_array();
-                $MoneyOutFeb_total = $val['sum'];
-
-                $sqlMar = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1519837200 AND 1522515599";
-                $result = $conn-> query($sqlMar);
-                $val = $result -> fetch_array();
-                $MoneyOutMar_total = $val['sum'];
-
-                $sqlApr = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1522515600 AND 1525107599";
-                $result = $conn-> query($sqlApr);
-                $val = $result -> fetch_array();
-                $MoneyOutApr_total = $val['sum'];
-
-                $sqlMay = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1525107600 AND 1527785999";
-                $result = $conn-> query($sqlMay);
-                $val = $result -> fetch_array();
-                $MoneyOutMay_total = $val['sum'];
-
-                $sqlJun = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1527786000 AND 1530377999";
-                $result = $conn-> query($sqlJun);
-                $val = $result -> fetch_array();
-                $MoneyOutJun_total = $val['sum'];
-
-                $sqlJul = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1530378000 AND 1533056399";
-                $result = $conn-> query($sqlJul);
-                $val = $result -> fetch_array();
-                $MoneyOutJul_total = $val['sum'];
-
-                $sqlAug = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1533056400 AND 1535734799";
-                $result = $conn-> query($sqlAug);
-                $val = $result -> fetch_array();
-                $MoneyOutAug_total = $val['sum'];
-
-                $sqlSeb = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1535734800 AND 1538326799";
-                $result = $conn-> query($sqlSeb);
-                $val = $result -> fetch_array();
-                $MoneyOutSeb_total = $val['sum'];
-
-                $sqlOct = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1538326800 AND 1541005199";
-                $result = $conn-> query($sqlOct);
-                $val = $result -> fetch_array();
-                $MoneyOutOct_total = $val['sum'];
-
-                $sqlNov = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1541005200 AND 1543597199";
-                $result = $conn-> query($sqlNov);
-                $val = $result -> fetch_array();
-                $MoneyOutNov_total = $val['sum'];
-
-                $sqlDec = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1543597200 AND 1546275599";
-                $result = $conn-> query($sqlDec);
-                $val = $result -> fetch_array();
-                $MoneyOutDec_total = $val['sum'];
-
-                $sumMoneyOut = $MoneyOutJan_total+$MoneyOutFeb_total+$MoneyOutMar_total+$MoneyOutApr_total+$MoneyOutMay_total+$MoneyOutJun_total+$MoneyOutJul_total +$MoneyOutAug_total+$MoneyOutSeb_total+$MoneyOutOct_total+$MoneyOutNov_total
-                  +$MoneyOutDec_total;
-                  echo $sumMoneyOut;
-                  $conn-> close();
-                    ?>
-                  </h2>
+                  <div class="h4 py-2" style="border-bottom: 1px solid">รวมรายจ่าย</div>
+                  <div class="h1 card-text text-center" id="moneyOut">
+                    <!-- data moneyOut here -->
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col mt-2">
+            <div class="col mt-3">
               <div class="card">
                 <div class="card-body m-2">
-                  <div class="h4" style="border-bottom: 1px solid">เงินคงเหลือ</div>
-                  <h2 class="card-text text-center">
-                <?php 
-                $conn = mysqli_connect("localhost","synerry_cash","itoL2oAZ7","synerry_cash");
-                if ($conn-> connect_error) {
-                  die("Connection failed:".$conn-> connect_error);
-                }
-
-                $sqlJan = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1514739600 AND 1517417999";
-                $result = $conn-> query($sqlJan);
-                $val = $result -> fetch_array();
-                $IncomeJan_total = $val['sum'];
-
-                $sqlFeb = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1517418000 AND 1519837199";
-                $result = $conn-> query($sqlFeb);
-                $val = $result -> fetch_array();
-                $IncomeFeb_total = $val['sum'];
-
-                $sqlMar = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1519837200 AND 1522515599";
-                $result = $conn-> query($sqlMar);
-                $val = $result -> fetch_array();
-                $IncomeMar_total = $val['sum'];
-
-                $sqlApr = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1522515600 AND 1525107599";
-                $result = $conn-> query($sqlApr);
-                $val = $result -> fetch_array();
-                $IncomeApr_total = $val['sum'];
-
-                $sqlMay = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1525107600 AND 1527785999";
-                $result = $conn-> query($sqlMay);
-                $val = $result -> fetch_array();
-                $IncomeMay_total = $val['sum'];
-
-                $sqlJun = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1527786000 AND 1530377999";
-                $result = $conn-> query($sqlJun);
-                $val = $result -> fetch_array();
-                $IncomeJun_total = $val['sum'];
-
-                $sqlJul = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1530378000 AND 1533056399";
-                $result = $conn-> query($sqlJul);
-                $val = $result -> fetch_array();
-                $IncomeJul_total = $val['sum'];
-
-                $sqlAug = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1533056400 AND 1535734799";
-                $result = $conn-> query($sqlAug);
-                $val = $result -> fetch_array();
-                $IncomeAug_total = $val['sum'];
-
-                $sqlSeb = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1535734800 AND 1538326799";
-                $result = $conn-> query($sqlSeb);
-                $val = $result -> fetch_array();
-                $IncomeSeb_total = $val['sum'];
-
-                $sqlOct = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1538326800 AND 1541005199";
-                $result = $conn-> query($sqlOct);
-                $val = $result -> fetch_array();
-                $IncomeOct_total = $val['sum'];
-
-                $sqlNov = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1541005200 AND 1543597199";
-                $result = $conn-> query($sqlNov);
-                $val = $result -> fetch_array();
-                $IncomeNov_total = $val['sum'];
-
-                $sqlDec = "SELECT SUM(balance) as sum FROM income WHERE inputDate BETWEEN 1543597200 AND 1546275599";
-                $result = $conn-> query($sqlDec);
-                $val = $result -> fetch_array();
-                $IncomeDec_total = $val['sum'];
-
-                $sqlJan = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1514739600 AND 1517417999";
-                $result = $conn-> query($sqlJan);
-                $val = $result -> fetch_array();
-                $MoneyOutJan_total = $val['sum'];
-
-                $sqlFeb = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1517418000 AND 1519837199";
-                $result = $conn-> query($sqlFeb);
-                $val = $result -> fetch_array();
-                $MoneyOutFeb_total = $val['sum'];
-
-                $sqlMar = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1519837200 AND 1522515599";
-                $result = $conn-> query($sqlMar);
-                $val = $result -> fetch_array();
-                $MoneyOutMar_total = $val['sum'];
-
-                $sqlApr = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1522515600 AND 1525107599";
-                $result = $conn-> query($sqlApr);
-                $val = $result -> fetch_array();
-                $MoneyOutApr_total = $val['sum'];
-
-                $sqlMay = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1525107600 AND 1527785999";
-                $result = $conn-> query($sqlMay);
-                $val = $result -> fetch_array();
-                $MoneyOutMay_total = $val['sum'];
-
-                $sqlJun = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1527786000 AND 1530377999";
-                $result = $conn-> query($sqlJun);
-                $val = $result -> fetch_array();
-                $MoneyOutJun_total = $val['sum'];
-
-                $sqlJul = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1530378000 AND 1533056399";
-                $result = $conn-> query($sqlJul);
-                $val = $result -> fetch_array();
-                $MoneyOutJul_total = $val['sum'];
-
-                $sqlAug = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1533056400 AND 1535734799";
-                $result = $conn-> query($sqlAug);
-                $val = $result -> fetch_array();
-                $MoneyOutAug_total = $val['sum'];
-
-                $sqlSeb = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1535734800 AND 1538326799";
-                $result = $conn-> query($sqlSeb);
-                $val = $result -> fetch_array();
-                $MoneyOutSeb_total = $val['sum'];
-
-                $sqlOct = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1538326800 AND 1541005199";
-                $result = $conn-> query($sqlOct);
-                $val = $result -> fetch_array();
-                $MoneyOutOct_total = $val['sum'];
-
-                $sqlNov = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1541005200 AND 1543597199";
-                $result = $conn-> query($sqlNov);
-                $val = $result -> fetch_array();
-                $MoneyOutNov_total = $val['sum'];
-
-                $sqlDec = "SELECT SUM(balance) as sum FROM moneyout WHERE inputDate BETWEEN 1543597200 AND 1546275599";
-                $result = $conn-> query($sqlDec);
-                $val = $result -> fetch_array();
-                $MoneyOutDec_total = $val['sum'];
-
-                $sumIncome = $IncomeJan_total+$IncomeFeb_total+$IncomeMar_total+$IncomeApr_total+$IncomeMay_total+$IncomeJun_total+$IncomeJul_total +$IncomeAug_total+$IncomeSeb_total+$IncomeOct_total+$IncomeNov_total
-                  +$IncomeDec_total;
-                
-                $sumMoneyOut = $MoneyOutJan_total+$MoneyOutFeb_total+$MoneyOutMar_total+$MoneyOutApr_total+$MoneyOutMay_total+$MoneyOutJun_total+$MoneyOutJul_total +$MoneyOutAug_total+$MoneyOutSeb_total+$MoneyOutOct_total+$MoneyOutNov_total
-                  +$MoneyOutDec_total;
-
-                $Total = $sumIncome - $sumMoneyOut;
-                echo $Total;  
-
-                $conn-> close();
-                ?>
-                  </h2>
+                  <div class="h4 py-2" style="border-bottom: 1px solid">เงินคงเหลือ</div>
+                  <div class="h1 card-text text-center" id="total">
+                    <!-- data total here -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -437,7 +155,6 @@
 
               if($result-> num_rows > 0) {
                 while($row = $result-> fetch_array()) {
-            // if ($row["list"] == 'โบนัส')
                   $list = $row["list"];
             //Jan
                   if ($row["inputDate"] >= 1514739600 && $row["inputDate"] <= 1517417999)
@@ -959,10 +676,6 @@
                       format: 'dd-mm-yyyy'
                     });
                   </script>
-
-            <!-- <label class="padding">รายการ</label>
-              <label class="padding2">ยอดเงิน</label> -->
-
               
               <ol class="form-inline" id="dynamic_field">
                <li class="mt-3">
@@ -1019,6 +732,84 @@
     $("body, html").animate({
       scrollTop: position
     } /* speed */ ,600);
+  });
+</script>
+
+<!-- select option show graph and data -->
+<script>
+  $(document).ready(function() {
+    $('select option[value="2"]').attr("selected",true);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+        var totalThisMonth = myObj[4]-myObj[5];
+        document.getElementById("income").innerHTML = myObj[4];
+        document.getElementById("moneyOut").innerHTML = myObj[5];
+        document.getElementById("total").innerHTML = totalThisMonth;
+      }
+    };
+    xmlhttp.open("GET", "dataGraph.php", true);
+    xmlhttp.send();
+    $('#category_faq').change(function() {
+      //Use $option (with the "$") to see that the variable is a jQuery object
+      var $option = $('#category_faq').val();
+      var $option = $(this).find('option:selected');
+      //Added with the EDIT
+      var optionText = $option.text();//to get <option>Text</option> content
+      if(optionText == "Today"){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            var totalToday = myObj[2]-myObj[3];
+            if (myObj[2] == null){
+              document.getElementById("income").innerHTML = "0";
+            }
+            else{
+              document.getElementById("income").innerHTML = myObj[2];  
+            }
+            if (myObj[3] == null){
+              document.getElementById("moneyOut").innerHTML = "0";
+            }
+            else{
+              document.getElementById("moneyOut").innerHTML = myObj[3];  
+            }
+            document.getElementById("total").innerHTML = totalToday;
+          }
+        };
+        xmlhttp.open("GET", "dataGraph.php", true);
+        xmlhttp.send();
+      }
+      else if (optionText == "This Month") {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            var totalThisMonth = myObj[4]-myObj[5];
+            document.getElementById("income").innerHTML = myObj[4];
+            document.getElementById("moneyOut").innerHTML = myObj[5];
+            document.getElementById("total").innerHTML = totalThisMonth;
+          }
+        };
+        xmlhttp.open("GET", "dataGraph.php", true);
+        xmlhttp.send();
+      }
+      else if (optionText == "This Year") {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            var totalThisYear = myObj[6]-myObj[7];
+            document.getElementById("income").innerHTML = myObj[6];
+            document.getElementById("moneyOut").innerHTML = myObj[7];
+            document.getElementById("total").innerHTML = totalThisYear;
+          }
+        };
+        xmlhttp.open("GET", "dataGraph.php", true);
+        xmlhttp.send();
+      }
+    });
   });
 </script>
 </body>

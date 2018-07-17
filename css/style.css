@@ -1,4 +1,6 @@
 html, body {
+  margin 0;
+  padding 0;
   height: 100%;
   width: 100%;
   font-family: 'Prompt', sans-serif;
@@ -19,72 +21,23 @@ html, body {
     color: rgba(255,255,255,1);
     font-size: 1.5rem;
 }
-.cashflow {
-  font-size: 2rem;
-}
 
 .modal-title-padding {
   padding-left: 160px;
 }
 
-.padding {
-  padding-top: 16px;
-  padding-left: 90px;
+.synerry_cash {
+  font-size: 2rem;
 }
-
-.padding2 {
-  padding-top: 16px;
-  padding-left: 170px;
-}
-
-.inner-addon {
-  position: relative;
-}
-
-.inner-addon .glyphicon {
-  position: absolute;
-  padding-top: 33px;
-  padding-right: 10px;
-}
-
-
-
-.sections input[type="text"]
-{
- width:120px;
- height:35px;
- padding-left:10px;
- text-align: center;
-}
-
-
-
 
 
 a {
     color: #303a46;
 }
-#Graph {
-  background: url('../img/background-graph.jpg') no-repeat center center fixed;
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  display: table;
-}
 
 .landing-text>.nav>.nav-item {
   color: white;
   font-size: 1.5rem;
-}
-
-.margin-left {
-  margin-left: 80px;
-}
-
-.img {
-  width: 100%;
-  height: auto;
 }
 
 .nav {
@@ -93,11 +46,6 @@ a {
     left:150px;
 }
 
-
-img {
-  margin-left: auto;
-  margin-right: auto;
-}
 
 h1 {
   font-size: 60px;
