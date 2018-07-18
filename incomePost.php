@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "synerry_cash";
-$password = "itoL2oAZ7";
-$dbname = "synerry_cash";
+$username = "root";
+$password = "chanpreecha1!";
+$dbname = "cashflow";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);

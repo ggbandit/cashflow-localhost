@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "/cash-flow/dataGraph.php",
+        url: "/cashflow-localhost/dataGraph.php",
         method: "GET",
         success: function(data) {
             var totalPerMonth = [];

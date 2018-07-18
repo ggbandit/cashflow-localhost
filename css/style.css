@@ -6,6 +6,10 @@ html, body {
   font-family: 'Prompt', sans-serif;
 }
 
+.logo {
+  font-size: 2rem;
+}
+
 
 .bg1 {
 	background-color: #f2f4f8;

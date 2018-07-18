@@ -33,7 +33,6 @@
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/style2.css">
   <script src="js/script.js"></script>
   <script src="js/getDataGraph.js"></script>
 
@@ -46,7 +45,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-md navbar-light sticky-top" id="spnTop">
     <div class="container-fluid">
-      <a class="synerry_cash">Cash Flow</a>
+      <a class="logo">Cash Flow</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -145,7 +144,7 @@
             </thead>
             <tbody>
               <?php
-              $conn = mysqli_connect("localhost","synerry_cash","itoL2oAZ7","synerry_cash");
+              $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
               if ($conn-> connect_error) {
                 die("Connection failed:".$conn-> connect_error);
               }
@@ -213,7 +212,7 @@
               <tr class="table-active">
                 <th class="text-center">รวมรายรับ</th>
                 <?php
-                $conn = mysqli_connect("localhost","synerry_cash","itoL2oAZ7","synerry_cash");
+                $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
                 if ($conn-> connect_error) {
                   die("Connection failed:".$conn-> connect_error);
                 }
@@ -322,7 +321,7 @@
             </thead>
             <tbody>
               <?php
-              $conn = mysqli_connect("localhost","synerry_cash","itoL2oAZ7","synerry_cash");
+              $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
               if ($conn-> connect_error) {
                 die("Connection failed:".$conn-> connect_error);
               }
@@ -391,7 +390,7 @@
               <tr class="table-active">
                 <th class="text-center">รวมรายจ่าย</th>
                 <?php
-                $conn = mysqli_connect("localhost","synerry_cash","itoL2oAZ7","synerry_cash");
+                $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
                 if ($conn-> connect_error) {
                   die("Connection failed:".$conn-> connect_error);
                 }
@@ -485,7 +484,7 @@
               <tr class="bg-dark" style="color:white;">
                 <th class="text-center">เงินคงเหลือ</th>
                 <?php 
-                $conn = mysqli_connect("localhost","synerry_cash","itoL2oAZ7","synerry_cash");
+                $conn = mysqli_connect("localhost","root","chanpreecha1!","cashflow");
                 if ($conn-> connect_error) {
                   die("Connection failed:".$conn-> connect_error);
                 }
