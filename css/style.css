@@ -12,46 +12,17 @@ html, body {
 
 
 .bg1 {
+  padding-top: 65px;
 	background-color: #f2f4f8;
 }
 
-.navbar {
-  background-color: #3964a3;
-  color: white;
-  padding-bottom: 1.5% 0;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: rgba(255,255,255,1);
-    font-size: 1.5rem;
-}
-
-.modal-title-padding {
-  padding-left: 160px;
-}
-
-.synerry_cash {
-  font-size: 2rem;
-}
 
 
-a {
-    color: #303a46;
-}
-
-.landing-text>.nav>.nav-item {
-  color: white;
-  font-size: 1.5rem;
-}
-
-.nav {
-  color: white;
-    position: relative;
-    left:150px;
-}
 
 
-h1 {
-  font-size: 60px;
-}
+
+
+
+
+
 

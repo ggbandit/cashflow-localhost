@@ -41,9 +41,9 @@
   <title>Cash Flow Synerry</title>
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-md navbar-light sticky-top" id="spnTop">
+  <nav class="navbar navbar-expand-md fixed-top" id="spnTop">
     <div class="container-fluid">
       <a class="logo">Cash Flow</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -52,7 +52,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link ภาพรวม" href=".ภาพรวม">ภาพรวม</a>
+            <a class="nav-link" id="ภาพรวม" href="#ภาพรวม">ภาพรวม</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#รายรับ">รายรับ</a>
@@ -61,7 +61,7 @@
             <a class="nav-link" href="#รายจ่าย">รายจ่าย</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#รายงาน" id="รายงาน">รายงาน</a>
+            <a class="nav-link" href="#รายงาน" >รายงาน</a>
           </li>
         </ul>
       </div>
@@ -123,8 +123,8 @@
     
     <!-- The Modal -->
     <div class="row no-gutters mt-3">
-      <div class="col-md-12 form-control p-1" style="background-color: white;"><div class="table-responsive">
-        <table class="display table table-striped table-sm" style="width:100%">
+      <div class="col-md-12 form-control p-1 " id="รายรับ" style="background-color: white;"><div class="table-responsive">
+        <table class="display table table-striped table-sm"  style="width:100%">
           <!-- Button to Open the Modal -->
           <div class="row form-inline">
             <div class="col-md-3 text-center">
@@ -139,7 +139,7 @@
           </div>
           <thead>
             <tr class="bg-info text-center">
-              <th class="text-center" id="รายรับ">รายรับ</th>
+              <th class="text-center">รายรับ</th>
               <?php
               $month = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dev");
               for ($i=0;$i<12;$i++) {

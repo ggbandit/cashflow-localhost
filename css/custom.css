@@ -22,6 +22,21 @@
 	font-size: 2rem;
 }
 
+.navbar {
+  background-color: #3964a3;
+  color: white;
+  padding-bottom: 1.5% 0;
+}
+
+a.nav-link{
+	font-size: 1.5rem;
+	color: white;
+}
+
+a.nav-link.active {
+	color: #343a40;
+}
+
 @media (min-width:225px) {
 	.margin {
 		margin-top: 10px;
