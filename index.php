@@ -85,7 +85,7 @@
               <canvas id="mycanvas" width="120vw" height="50vh" ></canvas>
             </div>
           </div>
-          <div class="col no-gutters">
+          <div class="col margin no-gutters">
             <div class="col">
               <div class="card">
                 <div class="card-body m-2">
@@ -122,9 +122,9 @@
     </div>
     <!-- Graph -->
     <!-- button -->
-    <div class="container-fluid">
+    
       <!-- The Modal -->
-      <div class="row">
+      <div class="row no-gutters">
         <div class="col-md-12 form-control" style="background-color: white;"><div class="table-responsive">
           <table class="display table table-striped table-sm" style="width:100%">
             <!-- Button to Open the Modal -->
@@ -714,7 +714,7 @@
     </div>
   </div>
 </div>
-</div>
+
 <!-- button -->
 <!-- table รายรับ-รายจ่าย -->
 
