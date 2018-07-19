@@ -70,10 +70,10 @@
   <!-- Graph -->
   <div class="container-fluid bg1">
     <div class="row pt-4">
-      <div class="col-lg-12 col-md-12 col-sm-6" >
-        <div class="row">
-          <div class="col-lg-9 col-md-9 col-sm-12 mb-2" >
-            <div class="form-control ml-4 pure-up" id="chart-container" style="background-color: white;">
+      <div class="col-lg-12 col-md-12 col-sm-12" >
+        <div class="row no-gutters">
+          <div class="col-lg-9 col-md-12 col-sm-12 mb-2" >
+            <div class="form-control" id="chart-container" style="background-color: white;">
               <div class="form-inline" style="padding:10px;">
                 <label>Choose Option</label>
                 <select class="form-control ml-3" style="width:140px;" id="category_faq">
@@ -85,7 +85,7 @@
               <canvas id="mycanvas" width="120vw" height="50vh" ></canvas>
             </div>
           </div>
-          <div class="col">
+          <div class="col no-gutters">
             <div class="col">
               <div class="card">
                 <div class="card-body m-2">
@@ -96,7 +96,7 @@
                 </div>
               </div>
             </div>
-            <div class="col mt-3">
+            <div class="col my-4">
               <div class="card">
                 <div class="card-body m-2">
                   <div class="h4 py-2" style="border-bottom: 1px solid">รวมรายจ่าย</div>
@@ -106,7 +106,7 @@
                 </div>
               </div>
             </div>
-            <div class="col mt-3">
+            <div class="col my-2">
               <div class="card">
                 <div class="card-body m-2">
                   <div class="h4 py-2" style="border-bottom: 1px solid">เงินคงเหลือ</div>
@@ -126,11 +126,19 @@
       <!-- The Modal -->
       <div class="row">
         <div class="col-md-12 form-control" style="background-color: white;"><div class="table-responsive">
-          <table id="" class="display table table-striped table-sm" style="width:100%">
+          <table class="display table table-striped table-sm" style="width:100%">
             <!-- Button to Open the Modal -->
-            <button type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#myModal">
+            <div class="row form-inline">
+              <div class="col-md-3 text-center">
+                <button type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#myModal">
               เพิ่มรายการ
             </button>
+              </div>
+              <div class="col-md-6 text-center pt-2">
+                <h3>รายรับ</h3>
+              </div>
+              <div class="col-md-3"></div>
+            </div>
             <thead>
               <tr class="bg-info text-center">
                 <th class="text-center" id="รายรับ">รายรับ</th>
